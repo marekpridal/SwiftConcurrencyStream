@@ -11,10 +11,8 @@ final class DetailViewModel: ObservableObject, @unchecked Sendable {
     @MainActor @Published var inputText: String = ""
     @MainActor @Published var labelText: String = ""
 
-    var task: Task<(), Never>?
-
     init() {
-        setupBinding()
+        //setupBinding()
     }
 
     deinit {
@@ -22,15 +20,21 @@ final class DetailViewModel: ObservableObject, @unchecked Sendable {
     }
 
     // Needs to be `@MainActor` as it's called from isolated context in View
-    @MainActor
+    // But can be bypassed by @unchecked Sendable and then used without `@MainActor`
+    //@MainActor
     func setupBindingAsync() async {
-        for await value in $inputText.values {
-            labelText = value.uppercased()
+        for await value in $inputText.removeDuplicates().values {
+            print("Called with value \(value)")
+            await MainActor.run {
+                labelText = value.uppercased()
+            }
+            //labelText = value.uppercased()
         }
     }
 
     // Requires manual task cancellation
     // Requires @unchecked Sendable
+    /*
     func setupBinding() {
         task = Task {
             for await value in $inputText.values {
@@ -40,4 +44,5 @@ final class DetailViewModel: ObservableObject, @unchecked Sendable {
             }
         }
     }
+    */
 }

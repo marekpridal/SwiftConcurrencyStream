@@ -14,15 +14,19 @@ struct DetailView: View {
         VStack {
             TextField("Text Input", text: $viewModel.inputText)
             LabeledContent("Provided input", value: viewModel.labelText)
+            NavigationLink("Detail 2") {
+                Text("Detail 2")
+            }
         }
         .task {
             // Seems like a better option
             // Cancels stream when View is deallocated
-            //await viewModel.setupBindingAsync()
+            // .task is called on every appear, should be solved by ours .onLoadAsync
+            await viewModel.setupBindingAsync()
         }
         .onDisappear {
             // Manual task cancellation
-            viewModel.task?.cancel()
+            //viewModel.task?.cancel()
         }
     }
 }
