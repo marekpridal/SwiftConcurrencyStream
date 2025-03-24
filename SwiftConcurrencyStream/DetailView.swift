@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DetailView: View {
-    @StateObject var viewModel = DetailViewModel()
+    @StateObject var viewModel = DetailViewModel(useCase: DetailUseCaseImp(repository: DetailRepositoryImp()))
 
     var body: some View {
         VStack {
@@ -23,6 +23,9 @@ struct DetailView: View {
             // Cancels stream when View is deallocated
             // .task is called on every appear, should be solved by ours .onLoadAsync
             await viewModel.setupBindingAsync()
+        }
+        .task {
+            await viewModel.setupRepositoryObservation()
         }
         .onDisappear {
             // Manual task cancellation

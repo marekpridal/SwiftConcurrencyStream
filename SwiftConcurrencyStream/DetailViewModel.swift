@@ -1,18 +1,14 @@
-//
-//  DetailViewModel.swift
-//  SwiftConcurrencyStream
-//
-//  Created by Marek Pridal on 17.03.2025.
-//
-
+import Foundation
 import Combine
 
 final class DetailViewModel: ObservableObject, @unchecked Sendable {
     @MainActor @Published var inputText: String = ""
     @MainActor @Published var labelText: String = ""
 
-    init() {
-        //setupBinding()
+    private let useCase: DetailUseCase
+
+    init(useCase: DetailUseCase) {
+        self.useCase = useCase
     }
 
     deinit {
@@ -23,26 +19,20 @@ final class DetailViewModel: ObservableObject, @unchecked Sendable {
     // But can be bypassed by @unchecked Sendable and then used without `@MainActor`
     //@MainActor
     func setupBindingAsync() async {
-        for await value in $inputText.removeDuplicates().values {
+        print("setupBindingAsync")
+        for await value in $inputText.debounce(for: .seconds(1), scheduler: DispatchQueue.global()).removeDuplicates().drop(while: { $0.isEmpty }).values {
             print("Called with value \(value)")
-            await MainActor.run {
-                labelText = value.uppercased()
-            }
-            //labelText = value.uppercased()
+            await useCase.update(value: value)
         }
     }
 
-    // Requires manual task cancellation
-    // Requires @unchecked Sendable
-    /*
-    func setupBinding() {
-        task = Task {
-            for await value in $inputText.values {
-                await MainActor.run {
-                    labelText = value.uppercased()
-                }
+    func setupRepositoryObservation() async {
+        print("setupRepositoryObservation")
+        for await value in await useCase.subscribe().map({ $0 ?? "No Value" }) {
+            print("Received value \(value)")
+            await MainActor.run {
+                labelText = value
             }
         }
     }
-    */
 }
