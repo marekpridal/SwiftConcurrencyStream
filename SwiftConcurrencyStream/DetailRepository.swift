@@ -4,7 +4,11 @@ protocol DetailRepository {
 }
 
 actor DetailRepositoryImp: DetailRepository {
-    private let dataStream = CurrentValueAsyncStream<String?>(nil)
+    private let dataStream: CurrentValueAsyncStream<String?>
+
+    init(dataStream: CurrentValueAsyncStream<String?> = CurrentValueAsyncStream<String?>(nil)) {
+        self.dataStream = dataStream
+    }
 
     deinit {
         print("Deinit of \(self)")

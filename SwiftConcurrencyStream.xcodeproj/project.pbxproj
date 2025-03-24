@@ -6,11 +6,27 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		DF6B71C22D916C92007AEF1A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DFF774E52D88189E00A18119 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DFF774EC2D88189E00A18119;
+			remoteInfo = SwiftConcurrencyStream;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		DF6B71BE2D916C92007AEF1A /* SwiftConcurrencyStreamTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftConcurrencyStreamTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFF774ED2D88189E00A18119 /* SwiftConcurrencyStream.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftConcurrencyStream.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		DF6B71BF2D916C92007AEF1A /* SwiftConcurrencyStreamTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SwiftConcurrencyStreamTests;
+			sourceTree = "<group>";
+		};
 		DFF774EF2D88189E00A18119 /* SwiftConcurrencyStream */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = SwiftConcurrencyStream;
@@ -19,6 +35,13 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		DF6B71BB2D916C92007AEF1A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DFF774EA2D88189E00A18119 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -33,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				DFF774EF2D88189E00A18119 /* SwiftConcurrencyStream */,
+				DF6B71BF2D916C92007AEF1A /* SwiftConcurrencyStreamTests */,
 				DFF774EE2D88189E00A18119 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				DFF774ED2D88189E00A18119 /* SwiftConcurrencyStream.app */,
+				DF6B71BE2D916C92007AEF1A /* SwiftConcurrencyStreamTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,6 +73,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		DF6B71BD2D916C92007AEF1A /* SwiftConcurrencyStreamTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DF6B71C42D916C92007AEF1A /* Build configuration list for PBXNativeTarget "SwiftConcurrencyStreamTests" */;
+			buildPhases = (
+				DF6B71BA2D916C92007AEF1A /* Sources */,
+				DF6B71BB2D916C92007AEF1A /* Frameworks */,
+				DF6B71BC2D916C92007AEF1A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DF6B71C32D916C92007AEF1A /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				DF6B71BF2D916C92007AEF1A /* SwiftConcurrencyStreamTests */,
+			);
+			name = SwiftConcurrencyStreamTests;
+			packageProductDependencies = (
+			);
+			productName = SwiftConcurrencyStreamTests;
+			productReference = DF6B71BE2D916C92007AEF1A /* SwiftConcurrencyStreamTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		DFF774EC2D88189E00A18119 /* SwiftConcurrencyStream */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DFF774FB2D88189F00A18119 /* Build configuration list for PBXNativeTarget "SwiftConcurrencyStream" */;
@@ -80,6 +128,10 @@
 				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
+					DF6B71BD2D916C92007AEF1A = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = DFF774EC2D88189E00A18119;
+					};
 					DFF774EC2D88189E00A18119 = {
 						CreatedOnToolsVersion = 16.2;
 					};
@@ -100,11 +152,19 @@
 			projectRoot = "";
 			targets = (
 				DFF774EC2D88189E00A18119 /* SwiftConcurrencyStream */,
+				DF6B71BD2D916C92007AEF1A /* SwiftConcurrencyStreamTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		DF6B71BC2D916C92007AEF1A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DFF774EB2D88189E00A18119 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -115,6 +175,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		DF6B71BA2D916C92007AEF1A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DFF774E92D88189E00A18119 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -124,7 +191,51 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		DF6B71C32D916C92007AEF1A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DFF774EC2D88189E00A18119 /* SwiftConcurrencyStream */;
+			targetProxy = DF6B71C22D916C92007AEF1A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		DF6B71C52D916C92007AEF1A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JV7TARSQ32;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.marekpridal.SwiftConcurrencyStreamTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftConcurrencyStream.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SwiftConcurrencyStream";
+			};
+			name = Debug;
+		};
+		DF6B71C62D916C92007AEF1A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JV7TARSQ32;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.marekpridal.SwiftConcurrencyStreamTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftConcurrencyStream.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SwiftConcurrencyStream";
+			};
+			name = Release;
+		};
 		DFF774F92D88189F00A18119 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -305,6 +416,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		DF6B71C42D916C92007AEF1A /* Build configuration list for PBXNativeTarget "SwiftConcurrencyStreamTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DF6B71C52D916C92007AEF1A /* Debug */,
+				DF6B71C62D916C92007AEF1A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DFF774E82D88189E00A18119 /* Build configuration list for PBXProject "SwiftConcurrencyStream" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
