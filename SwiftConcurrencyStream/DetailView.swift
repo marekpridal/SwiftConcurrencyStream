@@ -19,13 +19,21 @@ struct DetailView: View {
             }
         }
         .task {
-            // Seems like a better option
-            // Cancels stream when View is deallocated
-            // .task is called on every appear, should be solved by ours .onLoadAsync
+            // For stream observation we should use `.task` because observation is automatically cancelled on view disappear
+            // and needs to be reestablished on next appear.
             await viewModel.setupBindingAsync()
         }
         .task {
             await viewModel.setupRepositoryObservation()
+        }
+        .onLoadAsync {
+            print("OnLoadAsync1")
+        }
+        .onLoadAsync {
+            print("OnLoadAsync2")
+        }
+        .onLoadAsync {
+            print("OnLoadAsync3")
         }
         .onDisappear {
             // Manual task cancellation
