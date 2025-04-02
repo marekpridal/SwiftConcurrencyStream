@@ -1,10 +1,3 @@
-//
-//  DetailUseCaseSpy.swift
-//  SwiftConcurrencyStream
-//
-//  Created by Marek Pridal on 02.04.2025.
-//
-
 @testable import SwiftConcurrencyStream
 import XCTest
 
@@ -28,5 +21,9 @@ final class DetailUseCaseSpy: DetailUseCase {
         updateCalled += 1
         updatedValues.append(value)
         updateExpectation.fulfill()
+    }
+
+    func timerStream() async -> TimerStream {
+        fatalError()
     }
 }

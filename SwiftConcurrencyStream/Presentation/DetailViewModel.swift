@@ -15,11 +15,8 @@ final class DetailViewModel: ObservableObject, @unchecked Sendable {
         print("Deinit of \(self)")
     }
 
-    // Needs to be `@MainActor` as it's called from isolated context in View
-    // But can be bypassed by @unchecked Sendable and then used without `@MainActor`
-    //@MainActor
     func setupBindingAsync() async {
-        print("setupBindingAsync")
+        print(#function)
         for await value in $inputText.debounce(for: .seconds(0.5), scheduler: DispatchQueue.global()).removeDuplicates().drop(while: { $0.isEmpty }).values {
             print("Called with value \(value)")
             await useCase.update(value: value)
@@ -27,12 +24,19 @@ final class DetailViewModel: ObservableObject, @unchecked Sendable {
     }
 
     func setupRepositoryObservation() async {
-        print("setupRepositoryObservation")
+        print(#function)
         for await value in await useCase.subscribe().map({ $0 ?? "No Value" }) {
             print("Received value \(value)")
             await MainActor.run {
                 labelText = value
             }
+        }
+    }
+
+    func setupTimerObservation() async {
+        print(#function)
+        for await value in await useCase.timerStream() {
+            print("Received timer value \(value)")
         }
     }
 }

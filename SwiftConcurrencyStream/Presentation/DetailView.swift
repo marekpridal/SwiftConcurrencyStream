@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DetailView: View {
-    @StateObject var viewModel = DetailViewModel(useCase: DetailUseCaseImp(repository: DetailRepositoryImp()))
+    @StateObject var viewModel = DetailViewModel(useCase: DetailUseCaseImp(repository: DetailRepositoryImp(), timerRepository: TimerRepositoryImp()))
 
     var body: some View {
         VStack {
@@ -25,6 +25,9 @@ struct DetailView: View {
         }
         .task {
             await viewModel.setupRepositoryObservation()
+        }
+        .task {
+            await viewModel.setupTimerObservation()
         }
         .onLoadAsync {
             print("OnLoadAsync1")
