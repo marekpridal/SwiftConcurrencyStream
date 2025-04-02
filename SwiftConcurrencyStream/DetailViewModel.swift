@@ -20,7 +20,7 @@ final class DetailViewModel: ObservableObject, @unchecked Sendable {
     //@MainActor
     func setupBindingAsync() async {
         print("setupBindingAsync")
-        for await value in $inputText.debounce(for: .seconds(1), scheduler: DispatchQueue.global()).removeDuplicates().drop(while: { $0.isEmpty }).values {
+        for await value in $inputText.debounce(for: .seconds(0.5), scheduler: DispatchQueue.global()).removeDuplicates().drop(while: { $0.isEmpty }).values {
             print("Called with value \(value)")
             await useCase.update(value: value)
         }
